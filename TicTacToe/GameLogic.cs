@@ -26,6 +26,13 @@ namespace TicTacToe
             CurrentPlayer = PlayerOne;
         }
 
+        public void resetBoard()
+        {
+            GameBoard = new Player[3, 3];
+            PlayHistory = new List<Point>();
+            isFinished = false;
+        }
+
         public void placeToken(int x, int y)
         {
             GameBoard[x, y] = CurrentPlayer;

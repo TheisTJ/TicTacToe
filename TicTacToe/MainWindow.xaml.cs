@@ -48,7 +48,9 @@ namespace TicTacToe
 
             if (Game.isFinished)
             {
-                MessageBox.Show(Game.CurrentPlayer.Name + " WON!");
+                Player cPlayer = Game.CurrentPlayer;
+                cPlayer.Points++;
+                MessageBox.Show(cPlayer.Name + " WON!");
             }
 
         }
@@ -80,10 +82,16 @@ namespace TicTacToe
                 }
             }
         }
+        private void updateScoreBoard()
+        {
+            this.scoreOne.Text = Game.PlayerOne.Points.ToString();
+            this.scoreTwo.Text = Game.PlayerTwo.Points.ToString();
+        }
         private void resetGameBoard()
         {
-            Game = new GameLogic();
+            Game.resetBoard();
             updateGrid();
+            updateScoreBoard();
         }
     }
 }

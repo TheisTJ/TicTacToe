@@ -5,11 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TicTacToe"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="500">
+        Title="MainWindow" Height="520" Width="500">
     <StackPanel>
-        <StackPanel Orientation="Horizontal" Margin="5" HorizontalAlignment="Center">
-            <TextBlock Margin="5">Player One</TextBlock>
-            <TextBlock Margin="5">Player Two</TextBlock>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="20">
+            <StackPanel.Resources>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Margin" Value="5"/>
+                </Style>
+            </StackPanel.Resources>
+            <TextBlock x:Name="blockOne" Text="{DynamicResource oneName}"/>
+            <TextBox x:Name="boxOne" Visibility="Collapsed" Text="{DynamicResource oneName}"/>
+            <TextBlock x:Name="scoreOne">0</TextBlock>
+            <TextBlock>-</TextBlock>
+            <TextBlock x:Name="scoreTwo">0</TextBlock>
+            <TextBlock>Player Two</TextBlock>
         </StackPanel>
         <UniformGrid x:Name="GameGrid" Height="400" Rows="3" Columns="3" Background="LightGray" Margin="1">
             <Label Background="White" Margin="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MouseLeftButtonDown="Label_MouseLeftButtonDown"/>
